@@ -1,59 +1,497 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NVIDIA Prediction</title>
+
+    <title>NVIDIA Prediction | StockPredict</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/nvidia.css') }}">
+
 </head>
+
 <body>
 
-    <nav>
-        <h2>StockPredict</h2>
+    <!-- SIDEBAR -->
 
-        <a href="{{ url_for('home') }}">Home</a>
-        <a href="{{ url_for('gold') }}">Gold</a>
-        <a href="{{ url_for('apple') }}">Apple</a>
-        <a href="{{ url_for('microsoft') }}">Microsoft</a>
-        <a href="{{ url_for('nvidia') }}">NVIDIA</a>
-        <a href="{{ url_for('amazon') }}">Amazon</a>
-        <a href="{{ url_for('compare') }}">Comparison</a>
-        <a href="{{ url_for('about') }}">About</a>
+    <nav class="sidebar">
+
+        <div class="nav-title">
+            <h2>StockPredict</h2>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="{{ url_for('home') }}" class="nav-link">
+                Home
+            </a>
+
+            <a href="{{ url_for('gold') }}" class="nav-link">
+                Gold
+            </a>
+
+            <a href="{{ url_for('apple') }}" class="nav-link">
+                Apple
+            </a>
+
+            <a href="{{ url_for('microsoft') }}" class="nav-link">
+                Microsoft
+            </a>
+
+            <a href="{{ url_for('nvidia') }}" class="nav-link active">
+                NVIDIA
+            </a>
+
+            <a href="{{ url_for('amazon') }}" class="nav-link">
+                Amazon
+            </a>
+
+            <a href="{{ url_for('compare') }}" class="nav-link">
+                Comparison
+            </a>
+
+            <a href="{{ url_for('about') }}" class="nav-link">
+                About
+            </a>
+
+        </div>
+
     </nav>
 
-    <main>
 
-        <h1>NVIDIA Stock Prediction</h1>
+    <main class="main-content">
 
-        <p>Predict NVIDIA closing price using Ridge Regression.</p>
 
-        <form method="POST">
+        <!-- HEADER -->
 
-            <label>Open Price</label>
-            <input type="number" step="any" name="open" required>
+        <header class="top-header">
 
-            <label>High Price</label>
-            <input type="number" step="any" name="high" required>
+            <div class="page-label">
+                STOCK PREDICTION
+            </div>
 
-            <label>Low Price</label>
-            <input type="number" step="any" name="low" required>
+            <img
+                src="{{ url_for('static', filename='trading_logo.png') }}"
+                alt="StockPredict Logo"
+                class="trading-logo"
+            >
 
-            <label>Volume</label>
-            <input type="number" step="any" name="volume" required>
+        </header>
 
-            <button type="submit">Predict NVIDIA Price</button>
 
-        </form>
+        <!-- PREDICTION -->
 
-        {% if prediction is not none %}
+        <section class="prediction-hero">
 
-            <h2>Predicted Closing Price</h2>
-            <p>{{ prediction }}</p>
+            <div class="prediction-heading">
 
-            <p>Model: Ridge Regression</p>
+                <p class="section-number">
+                    01 — NVIDIA
+                </p>
 
-        {% endif %}
+                <h1>
+                    NVIDIA Stock Price
+                    <span>Prediction</span>
+                </h1>
+
+                <p>
+
+                    Enter Open, High, Low and Volume values to
+                    estimate the NVIDIA closing price using the
+                    trained machine learning model.
+
+                </p>
+
+            </div>
+
+
+            <div class="prediction-container">
+
+                <form
+                    method="POST"
+                    action="{{ url_for('nvidia') }}"
+                    class="prediction-form"
+                >
+
+                    <div class="input-group">
+
+                        <label for="open">
+                            Open
+                        </label>
+
+                        <input
+                            type="number"
+                            step="any"
+                            id="open"
+                            name="open"
+                            placeholder="Enter opening price"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="high">
+                            High
+                        </label>
+
+                        <input
+                            type="number"
+                            step="any"
+                            id="high"
+                            name="high"
+                            placeholder="Enter highest price"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="low">
+                            Low
+                        </label>
+
+                        <input
+                            type="number"
+                            step="any"
+                            id="low"
+                            name="low"
+                            placeholder="Enter lowest price"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="volume">
+                            Volume
+                        </label>
+
+                        <input
+                            type="number"
+                            step="any"
+                            id="volume"
+                            name="volume"
+                            placeholder="Enter trading volume"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="predict-button"
+                    >
+                        Predict Closing Price →
+                    </button>
+
+                </form>
+
+
+                {% if prediction is defined %}
+
+                <div class="prediction-result">
+
+                    <p>
+                        MODEL PREDICTION
+                    </p>
+
+                    <h2>
+                        Predicted Close
+                    </h2>
+
+                    <div class="close-value-box">
+
+                        <span>$</span>
+
+                        <strong>
+                            {{ prediction }}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="prediction-warning">
+
+                        <strong>
+                            ⚠ Prediction Notice
+                        </strong>
+
+                        <p>
+
+                            This machine learning prediction may
+                            be incorrect and is intended only for
+                            educational purposes.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+        </section>
+
+
+        <!-- DISCLAIMER -->
+
+        <section class="disclaimer-section">
+
+            <div class="disclaimer-box">
+
+                <span class="disclaimer-icon">
+                    !
+                </span>
+
+                <div>
+
+                    <h3>
+                        Educational Disclaimer
+                    </h3>
+
+                    <p>
+
+                        This prediction is generated from historical
+                        NVIDIA market data using a trained machine
+                        learning model.
+
+                        It may be inaccurate and should not be used
+                        for real-world investment decisions.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT NVIDIA -->
+
+        <section class="content-section">
+
+            <p class="section-number">
+                02 — ABOUT NVIDIA
+            </p>
+
+            <h2>
+                Understanding
+                <span>NVIDIA Trading Data</span>
+            </h2>
+
+            <p>
+
+                NVIDIA is a major semiconductor and technology
+                company known for its graphics processing units
+                and artificial intelligence hardware.
+
+            </p>
+
+            <p>
+
+                Historical NVIDIA stock data is used in this
+                project to demonstrate how regression algorithms
+                can learn relationships between trading features
+                and the closing price.
+
+            </p>
+
+
+            <div class="feature-grid">
+
+                <div class="feature-card">
+                    <h3>Open</h3>
+                    <p>
+                        NVIDIA stock price at the beginning of the
+                        selected trading period.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>High</h3>
+                    <p>
+                        Highest NVIDIA stock price during the
+                        selected period.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Low</h3>
+                    <p>
+                        Lowest NVIDIA stock price during the
+                        selected period.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <h3>Volume</h3>
+                    <p>
+                        Amount of NVIDIA stock traded during the
+                        selected period.
+                    </p>
+                </div>
+
+                <div class="feature-card target-feature">
+                    <h3>Close</h3>
+                    <p>
+                        The closing price that the model attempts
+                        to estimate.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- HOW IT WORKS -->
+
+        <section class="content-section">
+
+            <p class="section-number">
+                03 — NVIDIA MODEL
+            </p>
+
+            <h2>
+                How NVIDIA Prediction
+                <span>Works</span>
+            </h2>
+
+            <div class="process-container">
+
+                <div class="process-step">
+                    <span>01</span>
+                    <h3>Historical Data</h3>
+                    <p>
+                        Historical NVIDIA market data is used for
+                        model training.
+                    </p>
+                </div>
+
+                <div class="process-step">
+                    <span>02</span>
+                    <h3>Input Features</h3>
+                    <p>
+                        Open, High, Low and Volume are supplied
+                        to the trained model.
+                    </p>
+                </div>
+
+                <div class="process-step">
+                    <span>03</span>
+                    <h3>Model Processing</h3>
+                    <p>
+                        The trained regression model processes
+                        the supplied features.
+                    </p>
+                </div>
+
+                <div class="process-step">
+                    <span>04</span>
+                    <h3>Close Prediction</h3>
+                    <p>
+                        The model produces an estimated NVIDIA
+                        closing price.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- MODEL INFORMATION -->
+
+        <section class="model-information">
+
+            <p class="section-number">
+                04 — MODEL INFORMATION
+            </p>
+
+            <h2>
+                Machine Learning
+                <span>Behind NVIDIA</span>
+            </h2>
+
+            <p>
+                Regression algorithms explored for the NVIDIA
+                prediction task include:
+            </p>
+
+            <div class="model-tags">
+
+                <span>Linear Regression</span>
+                <span>Lasso Regression</span>
+                <span>Ridge Regression</span>
+                <span>Support Vector Regression</span>
+
+            </div>
+
+        </section>
+
+
+        <!-- LIMITATION -->
+
+        <section class="limitation-box">
+
+            <h3>
+                ⚠ Important Limitation
+            </h3>
+
+            <p>
+
+                This model does not reliably predict future NVIDIA
+                stock prices.
+
+                It learns from historical data and cannot account
+                for future events.
+
+            </p>
+
+            <p>
+
+                Technology developments, company announcements,
+                market sentiment, economic conditions and
+                unexpected events can affect actual prices.
+
+            </p>
+
+        </section>
+
+
+        <footer>
+
+            <p>
+                StockPredict — Educational Machine Learning Project
+            </p>
+
+            <p>
+                NVIDIA Prediction
+            </p>
+
+        </footer>
 
     </main>
 
+
+    <script src="{{ url_for('static', filename='js/nvidia.js') }}"></script>
+
 </body>
+
 </html>
+```

@@ -1,74 +1,1121 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>StockPredict</title>
+
+    <title>StockPredict | Machine Learning Stock Analysis</title>
+
+    <!-- CSS will be connected here later -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
 </head>
+
 <body>
 
-    <nav>
-        <h2>StockPredict</h2>
+    <!-- =====================================================
+         LEFT SIDEBAR NAVIGATION
+    ====================================================== -->
 
-        <a href="{{ url_for('home') }}">Home</a>
-        <a href="{{ url_for('gold') }}">Gold</a>
-        <a href="{{ url_for('apple') }}">Apple</a>
-        <a href="{{ url_for('microsoft') }}">Microsoft</a>
-        <a href="{{ url_for('nvidia') }}">NVIDIA</a>
-        <a href="{{ url_for('amazon') }}">Amazon</a>
-        <a href="{{ url_for('compare') }}">Comparison</a>
-        <a href="{{ url_for('about') }}">About</a>
+    <nav class="sidebar">
+
+        <div class="nav-title">
+            <h2>StockPredict</h2>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="{{ url_for('home') }}" class="nav-link active">
+                Home
+            </a>
+
+            <a href="{{ url_for('gold') }}" class="nav-link">
+                Gold
+            </a>
+
+            <a href="{{ url_for('apple') }}" class="nav-link">
+                Apple
+            </a>
+
+            <a href="{{ url_for('microsoft') }}" class="nav-link">
+                Microsoft
+            </a>
+
+            <a href="{{ url_for('nvidia') }}" class="nav-link">
+                NVIDIA
+            </a>
+
+            <a href="{{ url_for('amazon') }}" class="nav-link">
+                Amazon
+            </a>
+
+            <a href="{{ url_for('compare') }}" class="nav-link">
+                Comparison
+            </a>
+
+            <a href="{{ url_for('about') }}" class="nav-link">
+                About
+            </a>
+
+        </div>
+
     </nav>
 
-    <main>
 
-        <section>
-            <h1>Stock Price Prediction</h1>
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
 
-            <p>
-                Machine learning based stock price prediction
-                using historical market data.
+    <main class="main-content">
+
+
+        <!-- =================================================
+             TOP RIGHT LOGO
+        ================================================== -->
+
+        <header class="top-header">
+
+            <img
+                src="{{ url_for('static', filename='trading_logo.png') }}"
+                alt="StockPredict Trading Logo"
+                class="trading-logo"
+            >
+
+        </header>
+
+
+        <!-- =================================================
+             HERO SECTION
+        ================================================== -->
+
+        <section id="home" class="hero-section">
+
+            <div class="hero-content">
+
+                <p class="small-heading">
+                    MACHINE LEARNING × FINANCE
+                </p>
+
+                <h1>
+                    Stock Price
+                    <span>Prediction</span>
+                    Using Machine Learning
+                </h1>
+
+                <p class="hero-description">
+
+                    StockPredict is a machine learning based project
+                    that uses historical market data to train different
+                    regression models and predict stock closing prices.
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#stocks">
+                        Explore Trained Stocks
+                    </a>
+
+                    <a href="#how-it-works">
+                        How It Works
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-image">
+
+                <img
+                    src="{{ url_for('static', filename='trading_pic.png') }}"
+                    alt="Stock Trading Graph"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DISCLAIMER
+        ================================================== -->
+
+        <section class="disclaimer-section">
+
+            <div class="disclaimer-box">
+
+                <div class="disclaimer-icon">
+                    !
+                </div>
+
+                <div class="disclaimer-content">
+
+                    <h2>
+                        Educational Disclaimer
+                    </h2>
+
+                    <p>
+
+                        This project is created strictly for
+                        educational and learning purposes.
+
+                        The predictions generated by the machine
+                        learning models may be inaccurate and should
+                        not be considered financial advice.
+
+                        Stock markets are affected by many factors
+                        that cannot be captured completely by a
+                        machine learning model.
+
+                        Do not use the predictions from this project
+                        to make real-world investment or trading
+                        decisions.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             PROJECT INTRODUCTION
+        ================================================== -->
+
+        <section id="introduction" class="content-section">
+
+            <p class="section-number">
+                01 — INTRODUCTION
             </p>
 
-            <a href="{{ url_for('gold') }}">Explore Stocks</a>
+            <h2>
+                Understanding Stock Prediction
+                Through Machine Learning
+            </h2>
+
+            <p>
+
+                StockPredict is an educational machine learning
+                project created to understand how historical
+                financial data can be used with machine learning
+                algorithms.
+
+            </p>
+
+            <p>
+
+                In this project, historical stock market data is
+                collected, cleaned and prepared before being given
+                to different machine learning regression algorithms.
+
+                The models learn patterns from the available
+                historical data and are then evaluated using
+                previously unseen test data.
+
+            </p>
+
+            <p>
+
+                The main objective of this project is not to create
+                a professional financial prediction system.
+
+                Instead, it demonstrates the complete machine
+                learning workflow:
+
+            </p>
+
+            <div class="workflow">
+
+                <div>
+                    Data Collection
+                </div>
+
+                <span>→</span>
+
+                <div>
+                    Data Processing
+                </div>
+
+                <span>→</span>
+
+                <div>
+                    Model Training
+                </div>
+
+                <span>→</span>
+
+                <div>
+                    Model Evaluation
+                </div>
+
+                <span>→</span>
+
+                <div>
+                    Prediction
+                </div>
+
+            </div>
+
         </section>
 
-        <section>
-            <h2>Supported Assets</h2>
 
-            <a href="{{ url_for('gold') }}">Gold</a>
-            <a href="{{ url_for('apple') }}">Apple</a>
-            <a href="{{ url_for('microsoft') }}">Microsoft</a>
-            <a href="{{ url_for('nvidia') }}">NVIDIA</a>
-            <a href="{{ url_for('amazon') }}">Amazon</a>
+        <!-- =================================================
+             TRAINED STOCKS
+        ================================================== -->
+
+        <section id="stocks" class="content-section stocks-section">
+
+            <p class="section-number">
+                02 — TRAINED ASSETS
+            </p>
+
+            <h2>
+                What Stocks
+                <span>Were Trained?</span>
+            </h2>
+
+            <p>
+
+                Five different financial assets are currently
+                included in this project.
+
+                Each asset has its own trained machine learning
+                model.
+
+            </p>
+
+
+            <!-- =================================================
+                 GOLD
+            ================================================== -->
+
+            <article class="stock-card">
+
+                <div class="stock-text">
+
+                    <span class="stock-number">
+                        01
+                    </span>
+
+                    <h3>
+                        Gold
+                    </h3>
+
+                    <p>
+
+                        Gold is included as a financial commodity
+                        to demonstrate how machine learning can
+                        process historical gold price data and
+                        learn patterns related to its closing price.
+
+                    </p>
+
+                    <a href="{{ url_for('gold') }}">
+                        View Gold Prediction →
+                    </a>
+
+                </div>
+
+                <div class="stock-image">
+
+                    <img
+                        src="{{ url_for('static', filename='image/gold_image.png') }}"
+                        alt="Gold Trading"
+                    >
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 APPLE
+            ================================================== -->
+
+            <article class="stock-card">
+
+                <div class="stock-text">
+
+                    <span class="stock-number">
+                        02
+                    </span>
+
+                    <h3>
+                        Apple
+                    </h3>
+
+                    <p>
+
+                        Apple is one of the technology companies
+                        included in the project.
+
+                        Historical Apple stock data is used to
+                        train regression models and estimate the
+                        closing price from the available features.
+
+                    </p>
+
+                    <a href="{{ url_for('apple') }}">
+                        View Apple Prediction →
+                    </a>
+
+                </div>
+
+                <div class="stock-image">
+
+                    <img
+                        src="{{ url_for('static', filename='image/apple_image.png') }}"
+                        alt="Apple Stock"
+                    >
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 AMAZON
+            ================================================== -->
+
+            <article class="stock-card">
+
+                <div class="stock-text">
+
+                    <span class="stock-number">
+                        03
+                    </span>
+
+                    <h3>
+                        Amazon
+                    </h3>
+
+                    <p>
+
+                        Amazon stock data is used to demonstrate
+                        the same machine learning workflow on
+                        another large technology company.
+
+                        The historical data is processed and used
+                        to train the selected regression models.
+
+                    </p>
+
+                    <a href="{{ url_for('amazon') }}">
+                        View Amazon Prediction →
+                    </a>
+
+                </div>
+
+                <div class="stock-image">
+
+                    <img
+                        src="{{ url_for('static', filename='image/amazon_image.png') }}"
+                        alt="Amazon Stock"
+                    >
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 NVIDIA
+            ================================================== -->
+
+            <article class="stock-card">
+
+                <div class="stock-text">
+
+                    <span class="stock-number">
+                        04
+                    </span>
+
+                    <h3>
+                        NVIDIA
+                    </h3>
+
+                    <p>
+
+                        NVIDIA is included to study machine
+                        learning prediction on a major
+                        semiconductor and technology company.
+
+                        Its historical market data is used to
+                        train and evaluate the models.
+
+                    </p>
+
+                    <a href="{{ url_for('nvidia') }}">
+                        View NVIDIA Prediction →
+                    </a>
+
+                </div>
+
+                <div class="stock-image">
+
+                    <img
+                        src="{{ url_for('static', filename='image/nvidia_image.png') }}"
+                        alt="NVIDIA Stock"
+                    >
+
+                </div>
+
+            </article>
+
+
+            <!-- =================================================
+                 MICROSOFT
+            ================================================== -->
+
+            <article class="stock-card">
+
+                <div class="stock-text">
+
+                    <span class="stock-number">
+                        05
+                    </span>
+
+                    <h3>
+                        Microsoft
+                    </h3>
+
+                    <p>
+
+                        Microsoft is another technology company
+                        included in the project.
+
+                        Historical Microsoft market data is used
+                        to train the machine learning models and
+                        evaluate their ability to predict the
+                        closing price.
+
+                    </p>
+
+                    <a href="{{ url_for('microsoft') }}">
+                        View Microsoft Prediction →
+                    </a>
+
+                </div>
+
+                <div class="stock-image">
+
+                    <img
+                        src="{{ url_for('static', filename='image/microsoft_image.png') }}"
+                        alt="Microsoft Stock"
+                    >
+
+                </div>
+
+            </article>
+
         </section>
 
-        <section>
-            <h2>How It Works</h2>
 
-            <p>Historical Data → Model Training → Model Evaluation → Prediction</p>
+        <!-- =================================================
+             HOW IT WORKS
+        ================================================== -->
+
+        <section id="how-it-works" class="content-section">
+
+            <p class="section-number">
+                03 — HOW IT WORKS
+            </p>
+
+            <h2>
+                From Historical Data
+                <span>to Prediction</span>
+            </h2>
+
+
+            <div class="process-container">
+
+
+                <div class="process-step">
+
+                    <span>01</span>
+
+                    <h3>
+                        Historical Data
+                    </h3>
+
+                    <p>
+
+                        The models are trained using historical
+                        market data collected for each asset.
+
+                        The dataset contains several years of
+                        historical trading information.
+
+                    </p>
+
+                </div>
+
+
+                <div class="process-step">
+
+                    <span>02</span>
+
+                    <h3>
+                        Data Preparation
+                    </h3>
+
+                    <p>
+
+                        The historical data is cleaned and
+                        prepared before training.
+
+                        Relevant features are selected and
+                        separated into input data and target data.
+
+                    </p>
+
+                </div>
+
+
+                <div class="process-step">
+
+                    <span>03</span>
+
+                    <h3>
+                        Model Training
+                    </h3>
+
+                    <p>
+
+                        Different regression algorithms are
+                        trained using the historical training
+                        data.
+
+                    </p>
+
+                </div>
+
+
+                <div class="process-step">
+
+                    <span>04</span>
+
+                    <h3>
+                        Model Evaluation
+                    </h3>
+
+                    <p>
+
+                        The trained models are tested using
+                        previously unseen test data.
+
+                        Their predictions are compared with the
+                        actual closing prices.
+
+                    </p>
+
+                </div>
+
+
+                <div class="process-step">
+
+                    <span>05</span>
+
+                    <h3>
+                        Closing Price Prediction
+                    </h3>
+
+                    <p>
+
+                        The main target of this project is the
+                        <strong>Close</strong> price.
+
+                        The model attempts to estimate the
+                        closing trading price from the features
+                        provided to it.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- IMPORTANT LIMITATION -->
+
+            <div class="limitation-box">
+
+                <h3>
+                    ⚠ Important: What This Model Does NOT Do
+                </h3>
+
+                <p>
+
+                    This project should not be interpreted as a
+                    system that can accurately predict the future
+                    stock market.
+
+                </p>
+
+                <p>
+
+                    The model is trained on historical data and
+                    evaluates predictions based on the data
+                    structure used during training and testing.
+
+                    It does not understand future events such as
+                    company announcements, economic changes,
+                    political events, market sentiment, breaking
+                    news or unexpected market movements.
+
+                </p>
+
+                <p>
+
+                    Therefore, this project is primarily a
+                    demonstration of machine learning on historical
+                    financial data rather than a reliable
+                    future-market forecasting system.
+
+                </p>
+
+            </div>
+
         </section>
 
-        <section>
-            <h2>ML Models Used</h2>
 
-            <ul>
-                <li>Linear Regression</li>
-                <li>Lasso Regression</li>
-                <li>Ridge Regression</li>
-                <li>Support Vector Regression</li>
-            </ul>
+        <!-- =================================================
+             MODELS USED
+        ================================================== -->
+
+        <section id="models" class="content-section">
+
+            <p class="section-number">
+                04 — MACHINE LEARNING MODELS
+            </p>
+
+            <h2>
+                Models Used
+                <span>in the Project</span>
+            </h2>
+
+            <p>
+
+                Four regression algorithms were explored during
+                the development of this project.
+
+            </p>
+
+
+            <div class="models-grid">
+
+
+                <div class="model-card">
+
+                    <span>01</span>
+
+                    <h3>
+                        Linear Regression
+                    </h3>
+
+                    <p>
+
+                        A basic regression algorithm used to
+                        understand the relationship between input
+                        features and the target closing price.
+
+                    </p>
+
+                </div>
+
+
+                <div class="model-card">
+
+                    <span>02</span>
+
+                    <h3>
+                        Lasso Regression
+                    </h3>
+
+                    <p>
+
+                        A regularized version of linear regression
+                        that uses L1 regularization to reduce
+                        unnecessary feature influence.
+
+                    </p>
+
+                </div>
+
+
+                <div class="model-card">
+
+                    <span>03</span>
+
+                    <h3>
+                        Ridge Regression
+                    </h3>
+
+                    <p>
+
+                        A regularized regression algorithm that
+                        uses L2 regularization to help control
+                        model complexity.
+
+                    </p>
+
+                </div>
+
+
+                <div class="model-card">
+
+                    <span>04</span>
+
+                    <h3>
+                        Support Vector Regression
+                    </h3>
+
+                    <p>
+
+                        SVR uses support vector machine concepts
+                        for regression and can model more complex
+                        relationships between the input features
+                        and target.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SELECTED MODEL -->
+
+            <div class="selected-model">
+
+                <h3>
+                    Model Selection
+                </h3>
+
+                <p>
+
+                    All four algorithms were explored and
+                    evaluated.
+
+                    The model with the better evaluation result
+                    for the respective asset can be selected for
+                    prediction.
+
+                </p>
+
+                <p>
+
+                    The final model selection is based on model
+                    performance on the test data rather than
+                    simply choosing the most complex algorithm.
+
+                </p>
+
+            </div>
+
         </section>
 
-        <section>
-            <h2>Project Statistics</h2>
 
-            <p>5 Assets</p>
-            <p>4 Machine Learning Models</p>
-            <p>5 Trained Models</p>
+        ```html
+<!-- =================================================
+     PROJECT STRUCTURE
+================================================== -->
+
+<section id="structure" class="content-section">
+
+    <p class="section-number">
+        05 — PROJECT STRUCTURE
+    </p>
+
+    <h2>
+        Inside the
+        <span>Project</span>
+    </h2>
+
+    <p>
+
+        The project is organized into separate folders for the
+        Flask application, trained machine learning models,
+        HTML templates, CSS stylesheets, JavaScript files and
+        image assets.
+
+    </p>
+
+
+    <!-- FILE TREE -->
+
+    <div class="file-structure">
+
+<pre>
+StockPredict/
+│
+├── app.py
+│
+├── model/
+│   ├── gold_model.pkl
+│   ├── apple_model.pkl
+│   ├── microsoft_model.pkl
+│   ├── nvidia_model.pkl
+│   └── amazon_model.pkl
+│
+├── templates/
+│   ├── home.html
+│   ├── gold.html
+│   ├── apple.html
+│   ├── microsoft.html
+│   ├── nvidia.html
+│   ├── amazon.html
+│   ├── compare.html
+│   └── about.html
+│
+├── static/
+│   │
+│   ├── css/
+│   │   ├── home.css
+│   │   ├── gold.css
+│   │   ├── apple.css
+│   │   ├── microsoft.css
+│   │   ├── nvidia.css
+│   │   ├── amazon.css
+│   │   ├── compare.css
+│   │   └── about.css
+│   │
+│   ├── js/
+│   │   ├── home.js
+│   │   ├── gold.js
+│   │   ├── apple.js
+│   │   ├── microsoft.js
+│   │   ├── nvidia.js
+│   │   ├── amazon.js
+│   │   ├── compare.js
+│   │   └── about.js
+│   │
+│   ├── trading_logo.png
+│   ├── trading_pic.png
+│   │
+│   └── image/
+│       ├── gold_image.png
+│       ├── apple_image.png
+│       ├── amazon_image.png
+│       ├── nvidia_image.png
+│       └── microsoft_image.png
+│
+└── README.md
+</pre>
+
+    </div>
+
+
+    <!-- FILE EXPLANATION -->
+
+    <div class="file-explanation">
+
+        <div>
+
+            <h3>
+                app.py
+            </h3>
+
+            <p>
+                The main Flask application. It handles routes,
+                user requests and communication between the
+                website and the trained machine learning models.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                model/
+            </h3>
+
+            <p>
+                Contains the saved machine learning models
+                trained for each asset.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                templates/
+            </h3>
+
+            <p>
+                Contains the HTML pages of the Flask application.
+                Each page represents a different part of the
+                StockPredict project.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                static/css/
+            </h3>
+
+            <p>
+                Contains individual CSS files used to style
+                each page separately.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                static/js/
+            </h3>
+
+            <p>
+                Contains JavaScript files for page-specific
+                interactions, animations and dynamic behaviour.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                static/image/
+            </h3>
+
+            <p>
+                Contains the images used for the individual
+                stock sections on the website.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                trading_logo.png
+            </h3>
+
+            <p>
+                The main StockPredict logo displayed on the
+                website.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                trading_pic.png
+            </h3>
+
+            <p>
+                The trading graph image used in the home page
+                hero section.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h3>
+                README.md
+            </h3>
+
+            <p>
+                Documentation containing information about the
+                project, installation instructions, usage and
+                machine learning workflow.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+```
+
+
+
+        <!-- =================================================
+             PROJECT SUMMARY
+        ================================================== -->
+
+        <section class="summary-section">
+
+            <p class="section-number">
+                PROJECT SUMMARY
+            </p>
+
+            <h2>
+                Learning Machine Learning
+                Through a Real-World Dataset
+            </h2>
+
+            <div class="summary-stats">
+
+                <div>
+                    <strong>5</strong>
+                    <span>Assets</span>
+                </div>
+
+                <div>
+                    <strong>4</strong>
+                    <span>ML Models</span>
+                </div>
+
+                <div>
+                    <strong>5</strong>
+                    <span>Trained Models</span>
+                </div>
+
+                <div>
+                    <strong>1</strong>
+                    <span>Educational Goal</span>
+                </div>
+
+            </div>
+
         </section>
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer>
+
+            <p>
+                StockPredict — Machine Learning Educational Project
+            </p>
+
+            <p>
+                Built for learning, experimentation and
+                understanding machine learning.
+            </p>
+
+        </footer>
+
 
     </main>
 
+
+    <!-- JavaScript will be added later -->
+    <script src="{{ url_for('static', filename='js/home.js') }}"></script>
+
 </body>
+
 </html>
+```

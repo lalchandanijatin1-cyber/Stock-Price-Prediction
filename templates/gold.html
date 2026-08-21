@@ -1,60 +1,628 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gold Prediction</title>
+
+    <title>Gold Prediction | StockPredict</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/gold.css') }}">
+
 </head>
+
 <body>
 
-    <nav>
-        <h2>StockPredict</h2>
 
-        <a href="{{ url_for('home') }}">Home</a>
-        <a href="{{ url_for('gold') }}">Gold</a>
-        <a href="{{ url_for('apple') }}">Apple</a>
-        <a href="{{ url_for('microsoft') }}">Microsoft</a>
-        <a href="{{ url_for('nvidia') }}">NVIDIA</a>
-        <a href="{{ url_for('amazon') }}">Amazon</a>
-        <a href="{{ url_for('compare') }}">Comparison</a>
-        <a href="{{ url_for('about') }}">About</a>
+    <!-- =====================================================
+         LEFT SIDEBAR
+    ====================================================== -->
+
+    <nav class="sidebar">
+
+        <div class="nav-title">
+            <h2>StockPredict</h2>
+        </div>
+
+        <div class="nav-links">
+
+            <a href="{{ url_for('home') }}" class="nav-link">
+                Home
+            </a>
+
+            <a href="{{ url_for('gold') }}" class="nav-link active">
+                Gold
+            </a>
+
+            <a href="{{ url_for('apple') }}" class="nav-link">
+                Apple
+            </a>
+
+            <a href="{{ url_for('microsoft') }}" class="nav-link">
+                Microsoft
+            </a>
+
+            <a href="{{ url_for('nvidia') }}" class="nav-link">
+                NVIDIA
+            </a>
+
+            <a href="{{ url_for('amazon') }}" class="nav-link">
+                Amazon
+            </a>
+
+            <a href="{{ url_for('compare') }}" class="nav-link">
+                Comparison
+            </a>
+
+            <a href="{{ url_for('about') }}" class="nav-link">
+                About
+            </a>
+
+        </div>
+
     </nav>
 
-    <main>
 
-        <h1>Gold Price Prediction</h1>
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
 
-        <p>Predict Gold closing price using Ridge Regression.</p>
+    <main class="main-content">
 
-        <form method="POST">
 
-            <label>Open Price</label>
-            <input type="number" step="any" name="open" required>
+        <!-- =================================================
+             TOP HEADER
+        ================================================== -->
 
-            <label>High Price</label>
-            <input type="number" step="any" name="high" required>
+        <header class="top-header">
 
-            <label>Low Price</label>
-            <input type="number" step="any" name="low" required>
+            <div class="page-label">
+                STOCK PREDICTION
+            </div>
 
-            <label>Volume</label>
-            <input type="number" step="any" name="volume" required>
+            <img
+                src="{{ url_for('static', filename='trading_logo.png') }}"
+                alt="StockPredict Logo"
+                class="trading-logo"
+            >
 
-            <button type="submit">Predict Gold Price</button>
+        </header>
 
-        </form>
 
-        {% if prediction is not none %}
+        <!-- =================================================
+             PREDICTION HERO
+        ================================================== -->
 
-            <h2>Predicted Closing Price</h2>
+        <section class="prediction-hero">
 
-            <p>{{ prediction }}</p>
+            <div class="prediction-heading">
 
-            <p>Model: Ridge Regression</p>
+                <p class="section-number">
+                    01 — GOLD
+                </p>
 
-        {% endif %}
+                <h1>
+                    Gold Price
+                    <span>Prediction</span>
+                </h1>
+
+                <p>
+
+                    Enter the historical trading values below and
+                    let the trained machine learning model estimate
+                    the closing price.
+
+                </p>
+
+            </div>
+
+
+            <!-- =================================================
+                 PREDICTION FORM
+            ================================================== -->
+
+            <div class="prediction-container">
+
+                <form
+                    method="POST"
+                    action="{{ url_for('gold') }}"
+                    class="prediction-form"
+                >
+
+
+                    <!-- OPEN -->
+
+                    <div class="input-group">
+
+                        <label for="open">
+                            Open
+                        </label>
+
+                        <input
+                            type="number"
+                            step="any"
+                            id="open"
+                            name="open"
+                            placeholder="Enter opening price"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- HIGH -->
+
+                    <div class="input-group">
+
+                        <label for="high">
+                            High
+                        </label>
+
+                        <input
+                            type="number"
+                            step="any"
+                            id="high"
+                            name="high"
+                            placeholder="Enter highest price"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- LOW -->
+
+                    <div class="input-group">
+
+                        <label for="low">
+                            Low
+                        </label>
+
+                        <input
+                            type="number"
+                            step="any"
+                            id="low"
+                            name="low"
+                            placeholder="Enter lowest price"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- VOLUME -->
+
+                    <div class="input-group">
+
+                        <label for="volume">
+                            Volume
+                        </label>
+
+                        <input
+                            type="number"
+                            step="any"
+                            id="volume"
+                            name="volume"
+                            placeholder="Enter trading volume"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="predict-button"
+                    >
+                        Predict Closing Price →
+                    </button>
+
+                </form>
+
+
+                <!-- =================================================
+                     PREDICTION RESULT
+                ================================================== -->
+
+                {% if prediction is defined %}
+
+                <div class="prediction-result">
+
+                    <p>
+                        MODEL PREDICTION
+                    </p>
+
+                    <h2>
+                        Predicted Close
+                    </h2>
+
+                    <div class="close-value-box">
+
+                        <span>
+                            $
+                        </span>
+
+                        <strong>
+                            {{ prediction }}
+                        </strong>
+
+                    </div>
+
+                    <div class="prediction-warning">
+
+                        <strong>
+                            ⚠ Prediction Notice
+                        </strong>
+
+                        <p>
+
+                            This prediction is generated by a
+                            machine learning model and may be
+                            incorrect. It is provided for
+                            educational purposes only and should
+                            not be used as financial advice.
+
+                        </p>
+
+                    </div>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             DISCLAIMER
+        ================================================== -->
+
+        <section class="disclaimer-section">
+
+            <div class="disclaimer-box">
+
+                <span class="disclaimer-icon">
+                    !
+                </span>
+
+                <div>
+
+                    <h3>
+                        Educational Disclaimer
+                    </h3>
+
+                    <p>
+
+                        The prediction shown on this page is
+                        generated using a trained machine learning
+                        model.
+
+                        Financial markets are unpredictable and
+                        the result may be inaccurate.
+
+                        Do not use this prediction for actual
+                        trading or investment decisions.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ABOUT GOLD
+        ================================================== -->
+
+        <section class="content-section">
+
+            <p class="section-number">
+                02 — ABOUT GOLD
+            </p>
+
+            <h2>
+                Understanding
+                <span>Gold Trading Data</span>
+            </h2>
+
+            <p>
+
+                Gold is a globally traded commodity and is often
+                considered an important financial asset.
+
+                Its market price changes continuously according
+                to supply, demand, economic conditions, market
+                sentiment and other external factors.
+
+            </p>
+
+            <p>
+
+                In this project, historical gold trading data is
+                used as the foundation for machine learning.
+
+                The model learns relationships between the input
+                trading features and the closing price contained
+                in the dataset.
+
+            </p>
+
+
+            <!-- GOLD DATA FEATURES -->
+
+            <div class="feature-grid">
+
+                <div class="feature-card">
+
+                    <h3>
+                        Open
+                    </h3>
+
+                    <p>
+                        The price at which trading began for the
+                        selected trading period.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <h3>
+                        High
+                    </h3>
+
+                    <p>
+                        The highest recorded trading price during
+                        the selected period.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <h3>
+                        Low
+                    </h3>
+
+                    <p>
+                        The lowest recorded trading price during
+                        the selected period.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card">
+
+                    <h3>
+                        Volume
+                    </h3>
+
+                    <p>
+                        The amount of trading activity recorded
+                        during the selected period.
+                    </p>
+
+                </div>
+
+
+                <div class="feature-card target-feature">
+
+                    <h3>
+                        Close
+                    </h3>
+
+                    <p>
+                        The closing price is the target that the
+                        machine learning model attempts to predict.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             HOW GOLD MODEL WORKS
+        ================================================== -->
+
+        <section class="content-section">
+
+            <p class="section-number">
+                03 — GOLD MODEL
+            </p>
+
+            <h2>
+                How Gold Prediction
+                <span>Works</span>
+            </h2>
+
+            <div class="process-container">
+
+                <div class="process-step">
+
+                    <span>01</span>
+
+                    <h3>
+                        Historical Data
+                    </h3>
+
+                    <p>
+                        Historical gold market data is used as the
+                        training dataset.
+                    </p>
+
+                </div>
+
+
+                <div class="process-step">
+
+                    <span>02</span>
+
+                    <h3>
+                        Input Features
+                    </h3>
+
+                    <p>
+                        Open, High, Low and Volume are supplied to
+                        the trained model.
+                    </p>
+
+                </div>
+
+
+                <div class="process-step">
+
+                    <span>03</span>
+
+                    <h3>
+                        Machine Learning
+                    </h3>
+
+                    <p>
+                        The trained regression model processes
+                        the supplied features.
+                    </p>
+
+                </div>
+
+
+                <div class="process-step">
+
+                    <span>04</span>
+
+                    <h3>
+                        Close Prediction
+                    </h3>
+
+                    <p>
+                        The model produces an estimated closing
+                        price.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             MODEL INFORMATION
+        ================================================== -->
+
+        <section class="model-information">
+
+            <p class="section-number">
+                04 — MODEL INFORMATION
+            </p>
+
+            <h2>
+                Machine Learning
+                <span>Behind Gold</span>
+            </h2>
+
+            <p>
+
+                The Gold prediction system was created by training
+                regression models on historical Gold market data.
+
+                Different algorithms can be evaluated to determine
+                which provides the better result on the available
+                test data.
+
+            </p>
+
+            <div class="model-tags">
+
+                <span>
+                    Linear Regression
+                </span>
+
+                <span>
+                    Lasso Regression
+                </span>
+
+                <span>
+                    Ridge Regression
+                </span>
+
+                <span>
+                    Support Vector Regression
+                </span>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             LIMITATION
+        ================================================== -->
+
+        <section class="limitation-box">
+
+            <h3>
+                ⚠ Important Limitation
+            </h3>
+
+            <p>
+
+                This model does not reliably predict future gold
+                prices.
+
+                It is a machine learning model trained on
+                historical data and is designed to demonstrate
+                prediction using the available features.
+
+            </p>
+
+            <p>
+
+                Real-world gold prices can be influenced by
+                economic events, inflation, interest rates,
+                currency movements, geopolitical events,
+                investor behaviour and many other factors.
+
+            </p>
+
+        </section>
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer>
+
+            <p>
+                StockPredict — Educational Machine Learning Project
+            </p>
+
+            <p>
+                Gold Prediction
+            </p>
+
+        </footer>
+
 
     </main>
 
+
+    <script src="{{ url_for('static', filename='js/gold.js') }}"></script>
+
 </body>
+
 </html>
+```
