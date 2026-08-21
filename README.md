@@ -21,11 +21,10 @@
 
 ### 🌐 Live Demo
 
-**Coming Soon**
 
 🔗 **Working Model:** 
 
-<!-- Add your Vercel deployment link here after deployment -->
+https://stock-price-prediction-a7vc.onrender.com
 
 ---
 
