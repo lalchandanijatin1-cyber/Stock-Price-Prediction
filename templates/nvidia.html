@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NVIDIA Prediction</title>
+</head>
+<body>
+
+    <nav>
+        <h2>StockPredict</h2>
+
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('gold') }}">Gold</a>
+        <a href="{{ url_for('apple') }}">Apple</a>
+        <a href="{{ url_for('microsoft') }}">Microsoft</a>
+        <a href="{{ url_for('nvidia') }}">NVIDIA</a>
+        <a href="{{ url_for('amazon') }}">Amazon</a>
+        <a href="{{ url_for('compare') }}">Comparison</a>
+        <a href="{{ url_for('about') }}">About</a>
+    </nav>
+
+    <main>
+
+        <h1>NVIDIA Stock Prediction</h1>
+
+        <p>Predict NVIDIA closing price using Ridge Regression.</p>
+
+        <form method="POST">
+
+            <label>Open Price</label>
+            <input type="number" step="any" name="open" required>
+
+            <label>High Price</label>
+            <input type="number" step="any" name="high" required>
+
+            <label>Low Price</label>
+            <input type="number" step="any" name="low" required>
+
+            <label>Volume</label>
+            <input type="number" step="any" name="volume" required>
+
+            <button type="submit">Predict NVIDIA Price</button>
+
+        </form>
+
+        {% if prediction is not none %}
+
+            <h2>Predicted Closing Price</h2>
+            <p>{{ prediction }}</p>
+
+            <p>Model: Ridge Regression</p>
+
+        {% endif %}
+
+    </main>
+
+</body>
+</html>
