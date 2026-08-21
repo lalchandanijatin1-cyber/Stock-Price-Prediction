@@ -118,3 +118,28 @@ Stock-Price-Prediction/
 ├── reviews.json
 ├── requirements.txt
 └── README.md
+
+
+                         USER
+                           │
+                           ▼
+                    HTML / CSS / JS
+                           │
+                           ▼
+                         Flask
+                           │
+            ┌──────────────┼──────────────┐
+            │              │              │
+            ▼              ▼              ▼
+        Gold Model     Apple Model    Amazon Model
+            │              │              │
+            └──────────────┼──────────────┘
+                           │
+            ┌──────────────┴──────────────┐
+            │                             │
+            ▼                             ▼
+       NVIDIA Model                 Microsoft Model
+            │                             │
+            └──────────────┬──────────────┘
+                           ▼
+                  Predicted Close Price
