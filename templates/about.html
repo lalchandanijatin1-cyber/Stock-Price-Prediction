@@ -1,56 +1,1019 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - StockPredict</title>
+
+    <title>About | StockPredict</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/about.css') }}">
+
 </head>
+
+
 <body>
 
-    <nav>
-        <h2>StockPredict</h2>
 
-        <a href="{{ url_for('home') }}">Home</a>
-        <a href="{{ url_for('gold') }}">Gold</a>
-        <a href="{{ url_for('apple') }}">Apple</a>
-        <a href="{{ url_for('microsoft') }}">Microsoft</a>
-        <a href="{{ url_for('nvidia') }}">NVIDIA</a>
-        <a href="{{ url_for('amazon') }}">Amazon</a>
-        <a href="{{ url_for('compare') }}">Comparison</a>
-        <a href="{{ url_for('about') }}">About</a>
+    <!-- =====================================================
+         LEFT SIDEBAR
+    ====================================================== -->
+
+    <nav class="sidebar">
+
+        <div class="nav-title">
+            <h2>StockPredict</h2>
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="{{ url_for('home') }}" class="nav-link">
+                Home
+            </a>
+
+            <a href="{{ url_for('gold') }}" class="nav-link">
+                Gold
+            </a>
+
+            <a href="{{ url_for('apple') }}" class="nav-link">
+                Apple
+            </a>
+
+            <a href="{{ url_for('microsoft') }}" class="nav-link">
+                Microsoft
+            </a>
+
+            <a href="{{ url_for('nvidia') }}" class="nav-link">
+                NVIDIA
+            </a>
+
+            <a href="{{ url_for('amazon') }}" class="nav-link">
+                Amazon
+            </a>
+
+            <a href="{{ url_for('compare') }}" class="nav-link">
+                Comparison
+            </a>
+
+            <a href="{{ url_for('about') }}" class="nav-link active">
+                About
+            </a>
+
+        </div>
+
     </nav>
 
-    <main>
 
-        <h1>About StockPredict</h1>
 
-        <p>
-            StockPredict is a machine learning project created to explore
-            stock price prediction using historical market data.
-        </p>
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
 
-        <h2>Machine Learning</h2>
+    <main class="main-content">
 
-        <p>
-            The project experiments with different regression algorithms
-            and compares their performance using MSE, RMSE and R² Score.
-        </p>
 
-        <h2>Technologies</h2>
+        <!-- =================================================
+             HEADER
+        ================================================== -->
 
-        <ul>
-            <li>Python</li>
-            <li>Pandas</li>
-            <li>NumPy</li>
-            <li>Scikit-learn</li>
-            <li>Joblib</li>
-            <li>Flask</li>
-            <li>HTML</li>
-            <li>CSS</li>
-            <li>JavaScript</li>
-        </ul>
+        <header class="top-header">
+
+            <div class="page-label">
+                ABOUT THE PROJECT
+            </div>
+
+
+            <img
+                src="{{ url_for('static', filename='trading_logo.png') }}"
+                alt="StockPredict Logo"
+                class="trading-logo"
+            >
+
+        </header>
+
+
+
+        <!-- =================================================
+             PROJECT INTRODUCTION
+        ================================================== -->
+
+        <section class="about-hero">
+
+            <p class="section-number">
+                01 — PROJECT OVERVIEW
+            </p>
+
+
+            <h1>
+
+                About
+                <span>StockPredict</span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                StockPredict is an educational machine learning
+                project that explores how historical financial
+                market data can be processed and used with
+                regression algorithms to estimate closing prices.
+
+            </p>
+
+
+            <p class="hero-description">
+
+                The project contains trained models for five
+                different assets — Gold, Apple, Microsoft, NVIDIA
+                and Amazon.
+
+                Multiple regression algorithms were trained and
+                evaluated before selecting the best-performing
+                model for each asset.
+
+            </p>
+
+
+            <div class="project-highlights">
+
+                <div class="highlight-card">
+
+                    <strong>
+                        5
+                    </strong>
+
+                    <span>
+                        Assets
+                    </span>
+
+                </div>
+
+
+                <div class="highlight-card">
+
+                    <strong>
+                        4
+                    </strong>
+
+                    <span>
+                        ML Algorithms
+                    </span>
+
+                </div>
+
+
+                <div class="highlight-card">
+
+                    <strong>
+                        20
+                    </strong>
+
+                    <span>
+                        Model Evaluations
+                    </span>
+
+                </div>
+
+
+                <div class="highlight-card">
+
+                    <strong>
+                        1
+                    </strong>
+
+                    <span>
+                        Educational Goal
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TECHNOLOGIES
+        ================================================== -->
+
+        <section class="content-section">
+
+            <p class="section-number">
+                02 — TECHNOLOGIES
+            </p>
+
+
+            <h2>
+
+                Technologies &
+                <span>Models Used</span>
+
+            </h2>
+
+
+            <p>
+
+                The project combines web development, Python
+                programming and machine learning to create a
+                complete interactive prediction application.
+
+            </p>
+
+
+            <!-- PROGRAMMING LANGUAGES -->
+
+            <div class="technology-block">
+
+                <h3>
+                    Programming & Web Technologies
+                </h3>
+
+
+                <ul class="technology-list">
+
+                    <li>
+                        <strong>Python</strong>
+                        — Machine learning, data processing and
+                        Flask backend.
+                    </li>
+
+                    <li>
+                        <strong>HTML</strong>
+                        — Structure of the web pages.
+                    </li>
+
+                    <li>
+                        <strong>CSS</strong>
+                        — Styling, layout, animations and
+                        responsive design.
+                    </li>
+
+                    <li>
+                        <strong>JavaScript</strong>
+                        — Client-side interactions and dynamic
+                        visual effects.
+                    </li>
+
+                    <li>
+                        <strong>Jinja2</strong>
+                        — Connecting Flask backend data with
+                        HTML templates.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- PYTHON / ML -->
+
+            <div class="technology-block">
+
+                <h3>
+                    Machine Learning & Data Tools
+                </h3>
+
+
+                <ul class="technology-list">
+
+                    <li>
+                        <strong>NumPy</strong>
+                        — Numerical operations and array
+                        processing.
+                    </li>
+
+                    <li>
+                        <strong>Pandas</strong>
+                        — Data loading, cleaning and analysis.
+                    </li>
+
+                    <li>
+                        <strong>Scikit-learn</strong>
+                        — Machine learning algorithms,
+                        preprocessing and evaluation.
+                    </li>
+
+                    <li>
+                        <strong>Matplotlib</strong>
+                        — Data visualization.
+                    </li>
+
+                    <li>
+                        <strong>Seaborn</strong>
+                        — Statistical data visualization.
+                    </li>
+
+                    <li>
+                        <strong>Joblib</strong>
+                        — Saving and loading trained machine
+                        learning models.
+                    </li>
+
+                    <li>
+                        <strong>Flask</strong>
+                        — Python web framework connecting the
+                        machine learning models with the website.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <!-- ML MODELS -->
+
+            <div class="technology-block">
+
+                <h3>
+                    Machine Learning Models
+                </h3>
+
+
+                <ul class="model-list">
+
+                    <li>
+
+                        <span>
+                            01
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Linear Regression
+                            </strong>
+
+                            <p>
+                                A basic regression model used to
+                                learn the relationship between
+                                input features and closing price.
+                            </p>
+
+                        </div>
+
+                    </li>
+
+
+                    <li>
+
+                        <span>
+                            02
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Lasso Regression
+                            </strong>
+
+                            <p>
+                                Linear regression with L1
+                                regularization to help control
+                                unnecessary feature influence.
+                            </p>
+
+                        </div>
+
+                    </li>
+
+
+                    <li>
+
+                        <span>
+                            03
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Ridge Regression
+                            </strong>
+
+                            <p>
+                                Linear regression with L2
+                                regularization.
+
+                                Ridge achieved the strongest
+                                evaluation results across the
+                                five assets in this project.
+                            </p>
+
+                        </div>
+
+                    </li>
+
+
+                    <li>
+
+                        <span>
+                            04
+                        </span>
+
+                        <div>
+
+                            <strong>
+                                Support Vector Regression
+                            </strong>
+
+                            <p>
+                                A support-vector-based regression
+                                algorithm used to compare a
+                                different approach to the
+                                prediction problem.
+                            </p>
+
+                        </div>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FLASK FLOW
+        ================================================== -->
+
+        <section class="content-section">
+
+            <p class="section-number">
+                03 — SYSTEM ARCHITECTURE
+            </p>
+
+
+            <h2>
+
+                How Flask Connects
+                <span>Everything</span>
+
+            </h2>
+
+
+            <p>
+
+                Flask acts as the connection between the user
+                interface, the prediction routes and the trained
+                machine learning models.
+
+            </p>
+
+
+            <!-- FLOWCHART -->
+
+            <div class="flowchart">
+
+
+                <div class="flow-node user-node">
+
+                    <span>
+                        01
+                    </span>
+
+                    <h3>
+                        User
+                    </h3>
+
+                    <p>
+                        Enters Open, High, Low and Volume values.
+                    </p>
+
+                </div>
+
+
+                <div class="flow-arrow">
+                    ↓
+                </div>
+
+
+                <div class="flow-node">
+
+                    <span>
+                        02
+                    </span>
+
+                    <h3>
+                        HTML Interface
+                    </h3>
+
+                    <p>
+                        User submits the prediction form.
+                    </p>
+
+                </div>
+
+
+                <div class="flow-arrow">
+                    ↓
+                </div>
+
+
+                <div class="flow-node flask-node">
+
+                    <span>
+                        03
+                    </span>
+
+                    <h3>
+                        Flask / app.py
+                    </h3>
+
+                    <p>
+                        Receives the request and processes the
+                        submitted values.
+                    </p>
+
+                </div>
+
+
+                <div class="flow-arrow">
+                    ↓
+                </div>
+
+
+                <div class="flow-node">
+
+                    <span>
+                        04
+                    </span>
+
+                    <h3>
+                        Trained Model
+                    </h3>
+
+                    <p>
+                        The appropriate saved model processes
+                        the input features.
+                    </p>
+
+                </div>
+
+
+                <div class="flow-arrow">
+                    ↓
+                </div>
+
+
+                <div class="flow-node">
+
+                    <span>
+                        05
+                    </span>
+
+                    <h3>
+                        Prediction
+                    </h3>
+
+                    <p>
+                        The model generates an estimated Close
+                        value.
+                    </p>
+
+                </div>
+
+
+                <div class="flow-arrow">
+                    ↓
+                </div>
+
+
+                <div class="flow-node result-node">
+
+                    <span>
+                        06
+                    </span>
+
+                    <h3>
+                        HTML Response
+                    </h3>
+
+                    <p>
+                        Flask sends the prediction back to the
+                        webpage and displays the result.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             PROJECT CONNECTIONS
+        ================================================== -->
+
+        <section class="content-section">
+
+            <p class="section-number">
+                04 — PROJECT CONNECTIONS
+            </p>
+
+
+            <h2>
+
+                How The Project
+                <span>Connects</span>
+
+            </h2>
+
+
+            <div class="connections-grid">
+
+
+                <div class="connection-card">
+
+                    <span>
+                        FRONTEND
+                    </span>
+
+                    <h3>
+                        HTML + CSS + JavaScript
+                    </h3>
+
+                    <p>
+                        Provides the interface through which users
+                        interact with the prediction system.
+                    </p>
+
+                </div>
+
+
+                <div class="connection-card">
+
+                    <span>
+                        BACKEND
+                    </span>
+
+                    <h3>
+                        Flask + Python
+                    </h3>
+
+                    <p>
+                        Receives requests, processes inputs and
+                        communicates with the trained models.
+                    </p>
+
+                </div>
+
+
+                <div class="connection-card">
+
+                    <span>
+                        MACHINE LEARNING
+                    </span>
+
+                    <h3>
+                        Scikit-learn Models
+                    </h3>
+
+                    <p>
+                        Trained regression algorithms generate
+                        the predicted closing price.
+                    </p>
+
+                </div>
+
+
+                <div class="connection-card">
+
+                    <span>
+                        MODEL STORAGE
+                    </span>
+
+                    <h3>
+                        Joblib + .pkl
+                    </h3>
+
+                    <p>
+                        Trained models are saved and loaded by
+                        the Flask application.
+                    </p>
+
+                </div>
+
+
+                <div class="connection-card">
+
+                    <span>
+                        DATA
+                    </span>
+
+                    <h3>
+                        Historical Market Data
+                    </h3>
+
+                    <p>
+                        Historical trading information is used
+                        during model training and evaluation.
+                    </p>
+
+                </div>
+
+
+                <div class="connection-card">
+
+                    <span>
+                        TEMPLATES
+                    </span>
+
+                    <h3>
+                        Flask + Jinja2
+                    </h3>
+
+                    <p>
+                        Backend values can be passed into the
+                        HTML templates and displayed dynamically.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CONTACT
+        ================================================== -->
+
+        <section class="content-section contact-section">
+
+            <p class="section-number">
+                05 — CONTACT
+            </p>
+
+
+            <h2>
+
+                Let's
+                <span>Connect</span>
+
+            </h2>
+
+
+            <p>
+
+                Want to explore the project, check the source
+                code or connect with me?
+
+            </p>
+
+
+            <div class="contact-grid">
+
+
+                <a
+                    href="https://www.linkedin.com/in/jatin-lalchandani-robotics/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-card"
+                >
+
+                    <span>
+                        LINKEDIN
+                    </span>
+
+                    <h3>
+                        Jatin Lalchandani
+                    </h3>
+
+                    <p>
+                        Connect with me on LinkedIn →
+                    </p>
+
+                </a>
+
+
+                <a
+                    href="https://github.com/lalchandanijatin1-cyber/Stock-Price-Prediction.git"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="contact-card"
+                >
+
+                    <span>
+                        GITHUB
+                    </span>
+
+                    <h3>
+                        Stock Price Prediction
+                    </h3>
+
+                    <p>
+                        View the source code →
+                    </p>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             REVIEWS
+        ================================================== -->
+
+        <section class="content-section review-section">
+
+            <p class="section-number">
+                06 — PROJECT REVIEWS
+            </p>
+
+
+            <h2>
+
+                Share Your
+                <span>Review</span>
+
+            </h2>
+
+
+            <p>
+
+                Tried the project?
+
+                Share your feedback, suggestions or thoughts
+                about the project.
+
+            </p>
+
+
+            <!-- REVIEW FORM -->
+
+            <div class="review-container">
+
+
+                <form
+                    method="POST"
+                    action="{{ url_for('about') }}"
+                    class="review-form"
+                >
+
+
+                    <div class="input-group">
+
+                        <label for="review_name">
+                            Your Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="review_name"
+                            name="review_name"
+                            placeholder="Enter your name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="input-group">
+
+                        <label for="review_text">
+                            Your Review
+                        </label>
+
+                        <textarea
+                            id="review_text"
+                            name="review_text"
+                            rows="6"
+                            placeholder="Write your review..."
+                            required
+                        ></textarea>
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="review-button"
+                    >
+                        Submit Review →
+                    </button>
+
+                </form>
+
+
+                <!-- EXISTING REVIEWS -->
+
+                <div class="reviews-list">
+
+
+                    {% if reviews %}
+
+                        {% for review in reviews %}
+
+                        <article class="review-card">
+
+                            <div class="review-header">
+
+                                <h3>
+                                    {{ review.name }}
+                                </h3>
+
+                            </div>
+
+                            <p>
+                                {{ review.text }}
+                            </p>
+
+                        </article>
+
+                        {% endfor %}
+
+                    {% else %}
+
+                        <div class="no-reviews">
+
+                            <h3>
+                                No reviews yet
+                            </h3>
+
+                            <p>
+                                Be the first person to review
+                                StockPredict.
+                            </p>
+
+                        </div>
+
+                    {% endif %}
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DISCLAIMER
+        ================================================== -->
+
+        <section class="final-disclaimer">
+
+            <h3>
+                ⚠ Educational Project
+            </h3>
+
+            <p>
+
+                StockPredict is created for educational and
+                experimental purposes.
+
+                The predictions generated by the models may be
+                inaccurate and should not be considered financial
+                advice or used as a basis for real-world trading
+                decisions.
+
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer>
+
+            <p>
+                StockPredict — Machine Learning Educational Project
+            </p>
+
+            <p>
+                Built for learning, experimentation and
+                understanding machine learning.
+            </p>
+
+        </footer>
+
 
     </main>
 
+
+    <!-- JAVASCRIPT -->
+
+    <script src="{{ url_for('static', filename='js/about.js') }}"></script>
+
 </body>
+
 </html>

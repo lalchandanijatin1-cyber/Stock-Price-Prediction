@@ -1,49 +1,1134 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Model Comparison</title>
+
+    <title>Model Comparison | StockPredict</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/compare.css') }}">
+
 </head>
+
+
 <body>
 
-    <nav>
-        <h2>StockPredict</h2>
 
-        <a href="{{ url_for('home') }}">Home</a>
-        <a href="{{ url_for('gold') }}">Gold</a>
-        <a href="{{ url_for('apple') }}">Apple</a>
-        <a href="{{ url_for('microsoft') }}">Microsoft</a>
-        <a href="{{ url_for('nvidia') }}">NVIDIA</a>
-        <a href="{{ url_for('amazon') }}">Amazon</a>
-        <a href="{{ url_for('compare') }}">Comparison</a>
-        <a href="{{ url_for('about') }}">About</a>
+    <!-- =====================================================
+         LEFT SIDEBAR NAVIGATION
+    ====================================================== -->
+
+    <nav class="sidebar">
+
+        <div class="nav-title">
+            <h2>StockPredict</h2>
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="{{ url_for('home') }}" class="nav-link">
+                Home
+            </a>
+
+            <a href="{{ url_for('gold') }}" class="nav-link">
+                Gold
+            </a>
+
+            <a href="{{ url_for('apple') }}" class="nav-link">
+                Apple
+            </a>
+
+            <a href="{{ url_for('microsoft') }}" class="nav-link">
+                Microsoft
+            </a>
+
+            <a href="{{ url_for('nvidia') }}" class="nav-link">
+                NVIDIA
+            </a>
+
+            <a href="{{ url_for('amazon') }}" class="nav-link">
+                Amazon
+            </a>
+
+            <a href="{{ url_for('compare') }}" class="nav-link active">
+                Comparison
+            </a>
+
+            <a href="{{ url_for('about') }}" class="nav-link">
+                About
+            </a>
+
+        </div>
+
     </nav>
 
-    <main>
 
-        <h1>Model Comparison</h1>
 
-        <p>Compare the machine learning models used in this project.</p>
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
 
-        <h2>Models</h2>
+    <main class="main-content">
 
-        <ul>
-            <li>Linear Regression</li>
-            <li>Lasso Regression</li>
-            <li>Ridge Regression</li>
-            <li>Support Vector Regression</li>
-        </ul>
 
-        <h2>Evaluation Metrics</h2>
+        <!-- =================================================
+             HEADER
+        ================================================== -->
 
-        <ul>
-            <li>MSE</li>
-            <li>RMSE</li>
-            <li>R² Score</li>
-        </ul>
+        <header class="top-header">
+
+            <div class="page-label">
+                MODEL COMPARISON
+            </div>
+
+
+            <img
+                src="{{ url_for('static', filename='trading_logo.png') }}"
+                alt="StockPredict Trading Logo"
+                class="trading-logo"
+            >
+
+        </header>
+
+
+
+        <!-- =================================================
+             HERO SECTION
+        ================================================== -->
+
+        <section class="comparison-hero">
+
+            <p class="section-number">
+                01 — MODEL EVALUATION
+            </p>
+
+            <h1>
+
+                Which Model
+                <span>Performed Best?</span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                Four machine learning regression algorithms were
+                trained and evaluated for five different financial
+                assets.
+
+                This page compares their performance using
+                Mean Squared Error, Root Mean Squared Error and
+                R² Score.
+
+            </p>
+
+
+            <div class="comparison-stats">
+
+                <div class="stat-card">
+
+                    <strong>
+                        5
+                    </strong>
+
+                    <span>
+                        Assets
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <strong>
+                        4
+                    </strong>
+
+                    <span>
+                        ML Models
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <strong>
+                        20
+                    </strong>
+
+                    <span>
+                        Model Evaluations
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <strong>
+                        3
+                    </strong>
+
+                    <span>
+                        Metrics
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             WHY R2
+        ================================================== -->
+
+        <section class="content-section">
+
+            <p class="section-number">
+                02 — PRIMARY METRIC
+            </p>
+
+
+            <h2>
+
+                Why Did We Use
+                <span>R² Score?</span>
+
+            </h2>
+
+
+            <div class="explanation-box">
+
+                <h3>
+                    R² — Coefficient of Determination
+                </h3>
+
+
+                <p>
+
+                    R² Score was selected as the primary metric
+                    for comparing the models because it indicates
+                    how well the model explains the variation in
+                    the target variable.
+
+                </p>
+
+
+                <p>
+
+                    In this project, the target variable is the
+                    <strong>Close</strong> price.
+
+                    A higher R² value means that the model explains
+                    more of the variation in the closing-price
+                    data used for evaluation.
+
+                </p>
+
+
+                <div class="r2-scale">
+
+                    <div>
+                        <strong>Closer to 1</strong>
+                        <span>Better explanatory performance</span>
+                    </div>
+
+
+                    <div>
+                        <strong>Closer to 0</strong>
+                        <span>Weak explanatory performance</span>
+                    </div>
+
+
+                    <div>
+                        <strong>Below 0</strong>
+                        <span>Can indicate very poor performance</span>
+                    </div>
+
+                </div>
+
+
+                <p>
+
+                    Therefore, when comparing models trained and
+                    evaluated on the same asset and dataset,
+                    we primarily considered the model with the
+                    higher R² Score.
+
+                </p>
+
+
+                <p class="important-note">
+
+                    R² is used as the primary selection criterion,
+                    but MSE and RMSE are also shown because they
+                    provide information about the actual magnitude
+                    of prediction errors.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             WHY RIDGE
+        ================================================== -->
+
+        <section class="content-section">
+
+            <p class="section-number">
+                03 — SELECTED MODEL
+            </p>
+
+
+            <h2>
+
+                Why Was
+                <span>Ridge Regression</span>
+                Selected?
+
+            </h2>
+
+
+            <div class="ridge-explanation">
+
+                <p>
+
+                    After comparing Linear Regression, Lasso
+                    Regression, Ridge Regression and Support Vector
+                    Regression across all five assets, Ridge
+                    Regression produced the strongest overall
+                    results in this project.
+
+                </p>
+
+
+                <p>
+
+                    Ridge achieved the highest R² Score for
+                    <strong>Apple, Gold, Microsoft, NVIDIA and Amazon</strong>
+                    when comparing the four models for each asset.
+
+                </p>
+
+
+                <p>
+
+                    Ridge also produced very low MSE and RMSE
+                    values for these assets, indicating relatively
+                    small prediction errors on the evaluation data.
+
+                </p>
+
+
+                <div class="selection-highlight">
+
+                    <h3>
+                        Overall Selection
+                    </h3>
+
+                    <p>
+
+                        <strong>Ridge Regression</strong> was selected
+                        as the preferred model for this project based
+                        on its evaluation performance across the
+                        five assets.
+
+                    </p>
+
+                </div>
+
+
+                <p class="important-note">
+
+                    This selection only describes performance on
+                    the data used for evaluation.
+
+                    It does not mean Ridge Regression can reliably
+                    predict future stock prices.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             WINNERS
+        ================================================== -->
+
+        <section class="content-section">
+
+            <p class="section-number">
+                04 — BEST MODEL BY ASSET
+            </p>
+
+
+            <h2>
+
+                Selected Model
+                <span>for Each Asset</span>
+
+            </h2>
+
+
+            <div class="winner-grid">
+
+
+                <!-- APPLE -->
+
+                <div class="winner-card">
+
+                    <span class="winner-number">
+                        01
+                    </span>
+
+                    <h3>
+                        Apple
+                    </h3>
+
+                    <div class="winner-model">
+                        Ridge Regression
+                    </div>
+
+                    <p>
+                        R² Score
+                    </p>
+
+                    <strong>
+                        0.999924
+                    </strong>
+
+                </div>
+
+
+                <!-- GOLD -->
+
+                <div class="winner-card">
+
+                    <span class="winner-number">
+                        02
+                    </span>
+
+                    <h3>
+                        Gold
+                    </h3>
+
+                    <div class="winner-model">
+                        Ridge Regression
+                    </div>
+
+                    <p>
+                        R² Score
+                    </p>
+
+                    <strong>
+                        0.999884
+                    </strong>
+
+                </div>
+
+
+                <!-- MICROSOFT -->
+
+                <div class="winner-card">
+
+                    <span class="winner-number">
+                        03
+                    </span>
+
+                    <h3>
+                        Microsoft
+                    </h3>
+
+                    <div class="winner-model">
+                        Ridge Regression
+                    </div>
+
+                    <p>
+                        R² Score
+                    </p>
+
+                    <strong>
+                        0.999957
+                    </strong>
+
+                </div>
+
+
+                <!-- NVIDIA -->
+
+                <div class="winner-card">
+
+                    <span class="winner-number">
+                        04
+                    </span>
+
+                    <h3>
+                        NVIDIA
+                    </h3>
+
+                    <div class="winner-model">
+                        Ridge Regression
+                    </div>
+
+                    <p>
+                        R² Score
+                    </p>
+
+                    <strong>
+                        0.999895
+                    </strong>
+
+                </div>
+
+
+                <!-- AMAZON -->
+
+                <div class="winner-card">
+
+                    <span class="winner-number">
+                        05
+                    </span>
+
+                    <h3>
+                        Amazon
+                    </h3>
+
+                    <div class="winner-model">
+                        Ridge Regression
+                    </div>
+
+                    <p>
+                        R² Score
+                    </p>
+
+                    <strong>
+                        0.999903
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             COMPLETE COMPARISON TABLE
+        ================================================== -->
+
+        <section class="content-section">
+
+            <p class="section-number">
+                05 — COMPLETE RESULTS
+            </p>
+
+
+            <h2>
+
+                Complete Model
+                <span>Comparison</span>
+
+            </h2>
+
+
+            <p>
+
+                The following results were obtained from the
+                evaluation of the four regression models on the
+                five assets.
+
+            </p>
+
+
+            <!-- ================= APPLE ================= -->
+
+            <div class="asset-comparison">
+
+                <div class="asset-heading">
+
+                    <h3>
+                        Apple
+                    </h3>
+
+                    <span>
+                        Selected: Ridge Regression
+                    </span>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Model</th>
+                                <th>MSE</th>
+                                <th>RMSE</th>
+                                <th>R² Score</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+                                <td>Linear Regression</td>
+                                <td>4049.420002</td>
+                                <td>63.635053</td>
+                                <td>0.301231</td>
+                            </tr>
+
+                            <tr>
+                                <td>Lasso Regression</td>
+                                <td>0.783580</td>
+                                <td>0.885200</td>
+                                <td>0.999865</td>
+                            </tr>
+
+                            <tr class="best-model">
+                                <td>Ridge Regression</td>
+                                <td>0.438880</td>
+                                <td>0.662480</td>
+                                <td>0.999924</td>
+                            </tr>
+
+                            <tr>
+                                <td>Support Vector Regression</td>
+                                <td>5766.344408</td>
+                                <td>75.936450</td>
+                                <td>0.004958</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= GOLD ================= -->
+
+            <div class="asset-comparison">
+
+                <div class="asset-heading">
+
+                    <h3>
+                        Gold
+                    </h3>
+
+                    <span>
+                        Selected: Ridge Regression
+                    </span>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Model</th>
+                                <th>MSE</th>
+                                <th>RMSE</th>
+                                <th>R² Score</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+                                <td>Linear Regression</td>
+                                <td>39.757593</td>
+                                <td>6.305362</td>
+                                <td>0.999884</td>
+                            </tr>
+
+                            <tr>
+                                <td>Lasso Regression</td>
+                                <td>67.549438</td>
+                                <td>8.218846</td>
+                                <td>0.999802</td>
+                            </tr>
+
+                            <tr class="best-model">
+                                <td>Ridge Regression</td>
+                                <td>39.757503</td>
+                                <td>6.305355</td>
+                                <td>0.999884</td>
+                            </tr>
+
+                            <tr>
+                                <td>Support Vector Regression</td>
+                                <td>81566.087431</td>
+                                <td>285.597772</td>
+                                <td>0.761490</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= MICROSOFT ================= -->
+
+            <div class="asset-comparison">
+
+                <div class="asset-heading">
+
+                    <h3>
+                        Microsoft
+                    </h3>
+
+                    <span>
+                        Selected: Ridge Regression
+                    </span>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Model</th>
+                                <th>MSE</th>
+                                <th>RMSE</th>
+                                <th>R² Score</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+                                <td>Linear Regression</td>
+                                <td>2.850716</td>
+                                <td>1.688406</td>
+                                <td>0.999869</td>
+                            </tr>
+
+                            <tr>
+                                <td>Lasso Regression</td>
+                                <td>2.790172</td>
+                                <td>1.670381</td>
+                                <td>0.999872</td>
+                            </tr>
+
+                            <tr class="best-model">
+                                <td>Ridge Regression</td>
+                                <td>0.933179</td>
+                                <td>0.966012</td>
+                                <td>0.999957</td>
+                            </tr>
+
+                            <tr>
+                                <td>Support Vector Regression</td>
+                                <td>21750.706099</td>
+                                <td>147.481206</td>
+                                <td>0.002660</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= NVIDIA ================= -->
+
+            <div class="asset-comparison">
+
+                <div class="asset-heading">
+
+                    <h3>
+                        NVIDIA
+                    </h3>
+
+                    <span>
+                        Selected: Ridge Regression
+                    </span>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Model</th>
+                                <th>MSE</th>
+                                <th>RMSE</th>
+                                <th>R² Score</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+                                <td>Linear Regression</td>
+                                <td>1916.038745</td>
+                                <td>43.772580</td>
+                                <td>0.082859</td>
+                            </tr>
+
+                            <tr>
+                                <td>Lasso Regression</td>
+                                <td>0.561859</td>
+                                <td>0.749572</td>
+                                <td>0.999731</td>
+                            </tr>
+
+                            <tr class="best-model">
+                                <td>Ridge Regression</td>
+                                <td>0.219720</td>
+                                <td>0.468743</td>
+                                <td>0.999895</td>
+                            </tr>
+
+                            <tr>
+                                <td>Support Vector Regression</td>
+                                <td>2086.877201</td>
+                                <td>45.682351</td>
+                                <td>0.001084</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= AMAZON ================= -->
+
+            <div class="asset-comparison">
+
+                <div class="asset-heading">
+
+                    <h3>
+                        Amazon
+                    </h3>
+
+                    <span>
+                        Selected: Ridge Regression
+                    </span>
+
+                </div>
+
+
+                <div class="table-container">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+                                <th>Model</th>
+                                <th>MSE</th>
+                                <th>RMSE</th>
+                                <th>R² Score</th>
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+                                <td>Linear Regression</td>
+                                <td>1.219363</td>
+                                <td>1.104248</td>
+                                <td>0.999757</td>
+                            </tr>
+
+                            <tr>
+                                <td>Lasso Regression</td>
+                                <td>0.967501</td>
+                                <td>0.983616</td>
+                                <td>0.999807</td>
+                            </tr>
+
+                            <tr class="best-model">
+                                <td>Ridge Regression</td>
+                                <td>0.487120</td>
+                                <td>0.697940</td>
+                                <td>0.999903</td>
+                            </tr>
+
+                            <tr>
+                                <td>Support Vector Regression</td>
+                                <td>4944.416483</td>
+                                <td>70.316545</td>
+                                <td>0.014230</td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             METRIC EXPLANATION
+        ================================================== -->
+
+        <section class="content-section">
+
+            <p class="section-number">
+                06 — UNDERSTANDING THE METRICS
+            </p>
+
+
+            <h2>
+                What Do These
+                <span>Metrics Mean?</span>
+            </h2>
+
+
+            <div class="metrics-grid">
+
+
+                <div class="metric-card">
+
+                    <span>
+                        MSE
+                    </span>
+
+                    <h3>
+                        Mean Squared Error
+                    </h3>
+
+                    <p>
+
+                        MSE calculates the average squared
+                        difference between the actual and predicted
+                        values.
+
+                    </p>
+
+                    <strong>
+                        Lower is better
+                    </strong>
+
+                </div>
+
+
+                <div class="metric-card">
+
+                    <span>
+                        RMSE
+                    </span>
+
+                    <h3>
+                        Root Mean Squared Error
+                    </h3>
+
+                    <p>
+
+                        RMSE is the square root of MSE and represents
+                        prediction error in the same unit as the
+                        target variable.
+
+                    </p>
+
+                    <strong>
+                        Lower is better
+                    </strong>
+
+                </div>
+
+
+                <div class="metric-card">
+
+                    <span>
+                        R²
+                    </span>
+
+                    <h3>
+                        R² Score
+                    </h3>
+
+                    <p>
+
+                        R² indicates how much of the variation in
+                        the target variable is explained by the
+                        model.
+
+                    </p>
+
+                    <strong>
+                        Higher is better
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FINAL RESULT
+        ================================================== -->
+
+        <section class="final-result">
+
+            <p class="section-number">
+                07 — FINAL RESULT
+            </p>
+
+
+            <h2>
+
+                Ridge Regression
+                <span>Wins the Comparison</span>
+
+            </h2>
+
+
+            <p>
+
+                Based on the evaluation results obtained in this
+                project, Ridge Regression achieved the strongest
+                overall performance across all five assets.
+
+            </p>
+
+
+            <div class="final-winners">
+
+                <div>
+                    Apple → Ridge
+                </div>
+
+                <div>
+                    Gold → Ridge
+                </div>
+
+                <div>
+                    Microsoft → Ridge
+                </div>
+
+                <div>
+                    NVIDIA → Ridge
+                </div>
+
+                <div>
+                    Amazon → Ridge
+                </div>
+
+            </div>
+
+
+            <div class="final-warning">
+
+                <h3>
+                    ⚠ Remember
+                </h3>
+
+                <p>
+
+                    These results describe the performance of the
+                    models on the evaluation data.
+
+                    They do not guarantee accurate future stock
+                    predictions.
+
+                    Financial markets are influenced by many
+                    unpredictable factors that are not represented
+                    by this project.
+
+                </p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FOOTER
+        ================================================== -->
+
+        <footer>
+
+            <p>
+                StockPredict — Machine Learning Educational Project
+            </p>
+
+            <p>
+                Model Comparison
+            </p>
+
+        </footer>
+
 
     </main>
 
+
+    <!-- JAVASCRIPT -->
+
+    <script src="{{ url_for('static', filename='js/compare.js') }}"></script>
+
 </body>
+
 </html>
